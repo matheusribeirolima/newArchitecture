@@ -1,0 +1,29 @@
+<resources>
+    <!-- GENERAL !-->
+    <string name="app_name">Test</string>
+    <string name="base_url">http://200.243.224.155:23000/biis-core/</string>
+    <string name="error_message">Falha na conexão</string>
+    <string name="logo_biis">Logo Biis</string>
+    <string name="toolbar_navigation_content_description">Voltar</string>
+
+    <!-- LOGIN -->
+    <string name="act_login_ht_login">CPF ou CNPJ</string>
+    <string name="act_login_ht_password">Senha</string>
+    <string name="act_login_bt_entry">Entrar</string>
+    <string name="act_login_tv_forgot_password">Esqueci a senha</string>
+    <string name="act_login_switch_touch_id">"Touch ID   "</string>
+    <string name="act_login_tv_biis_account">Não possui uma conta no Biis?</string>
+    <string name="act_login_bt_sign_up">Cadastre-se</string>
+    <string name="act_login_error_empty_login">É obrigatório informar um CPF ou CNPJ</string>
+    <string name="act_login_error_invalid_cpf">Informe um CPF válido</string>
+    <string name="act_login_error_invalid_cnpj">Informe um CNPJ válido</string>
+    <string name="act_login_error_empty_password">É obrigatório informar a senha</string>
+    <string name="act_login_error_invalid_password">A senha deve ter 5 caracteres</string>
+    <string name="act_login_touch_id_active">O próximo login será feito com a digital</string>
+
+    <!-- MAIN -->
+    <string name="frag_list_campaigns_title_campaigns">Campanhas</string>
+    <string name="frag_list_campaigns_bt_create_campaign">Criar Campanha</string>
+    <string name="item_list_campaigns_iv_logo">Logo da Campanha</string>
+
+</resources>

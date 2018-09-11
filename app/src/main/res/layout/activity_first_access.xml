@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="firstAccessViewModel"
+            type="br.com.valecard.test.viewmodel.intro.FirstAccessViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.synnapps.carouselview.CarouselView
+            android:id="@+id/cvFirstAccess"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:imageListener="@{firstAccessViewModel.changeImages}"
+            app:pageCount="@{firstAccessViewModel.getImages().length}"
+            app:autoPlay="false"
+            app:indicatorMarginVertical="42dp"
+            app:radius="5dp"
+            app:snap="false"
+            app:strokeWidth="1dp" />
+
+        <LinearLayout
+            android:id="@+id/llFirstAccess"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="72dp"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btRegisterFirstAccess"
+                style="@style/ButtonGradientTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/act_small_margin"
+                android:layout_marginEnd="@dimen/act_large_margin"
+                android:layout_marginStart="@dimen/act_large_margin"
+                android:onClick="@{() -> firstAccessViewModel.onClickRegister()}"
+                android:text="Quero me cadastrar" />
+
+            <Button
+                android:id="@+id/btLoginFirstAccess"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/act_large_margin"
+                android:layout_marginStart="@dimen/act_large_margin"
+                android:background="@drawable/ripple_radius"
+                android:fontFamily="@font/gotham_bold"
+                android:onClick="@{() -> firstAccessViewModel.onClickLogin()}"
+                android:text="Já sou cadastrado"
+                android:textAllCaps="false" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

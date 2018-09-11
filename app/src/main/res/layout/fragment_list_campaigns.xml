@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="listCampaignsViewModel"
+            type="br.com.valecard.test.viewmodel.main.ListCampaignsViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/toolbarCampaigns"
+            layout="@layout/layout_toolbar" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/tvCreateCampaigns"
+            android:layout_below="@+id/toolbarCampaigns"
+            android:layout_marginEnd="@dimen/act_medium_margin"
+            android:layout_marginStart="@dimen/act_medium_margin"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/frag_list_campaigns_title_campaigns"
+                android:theme="@style/TitleTheme" />
+
+            <TextView
+                android:id="@+id/tvCampaigns"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/act_small_margin"
+                android:theme="@style/SubtitleTheme" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rvCampaigns"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/act_medium_margin" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvCreateCampaigns"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorAccent"
+            android:fontFamily="@font/gotham_bold"
+            android:gravity="center"
+            android:onClick="@{() -> listCampaignsViewModel.onClickCreateCampaigns()}"
+            android:padding="@dimen/act_medium_margin"
+            android:text="@string/frag_list_campaigns_bt_create_campaign"
+            android:textSize="@dimen/font_size_medium_16" />
+
+    </RelativeLayout>
+</layout>

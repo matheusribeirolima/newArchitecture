@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="loginViewModel"
+            type="br.com.valecard.test.viewmodel.intro.LoginViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="@dimen/act_horizontal_margin"
+        android:layout_marginStart="@dimen/act_horizontal_margin">
+
+        <ImageView
+            android:id="@+id/ivLogin"
+            android:layout_width="@dimen/act_image_horizontal_size"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/act_large_margin"
+            android:contentDescription="@string/logo_biis"
+            app:srcCompat="@drawable/biis_logo_grey" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilCpfCnpjLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ivLogin"
+            android:layout_marginTop="@dimen/act_medium_margin"
+            android:theme="@style/EditTextTheme"
+            app:error="@{loginViewModel.cpfCnpjError}"
+            app:errorEnabled="true">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/tietCpfCnpjLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/act_login_ht_login"
+                android:inputType="number"
+                android:maxLength="18"
+                android:onTextChanged="@{loginViewModel::clearCpfCnpjError}"
+                android:text="@={loginViewModel.loginRequest.login}"
+                app:maskCpfCnpj='@{"##.###.###/####-##"}' />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilPasswordLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tilCpfCnpjLogin"
+            android:theme="@style/EditTextTheme"
+            app:error="@{loginViewModel.passwordError}"
+            app:errorEnabled="true"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/colorWhite">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/tietPasswordLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/act_login_ht_password"
+                android:inputType="numberPassword"
+                android:maxLength="5"
+                android:onTextChanged="@{loginViewModel::clearPasswordError}"
+                android:text="@={loginViewModel.loginRequest.password}" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/btLogin"
+            style="@style/ButtonWhiteTheme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tilPasswordLogin"
+            android:layout_marginTop="@dimen/act_small_margin"
+            android:onClick="@{() -> loginViewModel.onClickLogin()}"
+            android:text="@string/act_login_bt_entry" />
+
+        <TextView
+            android:id="@+id/tvForgotLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btLogin"
+            android:layout_centerHorizontal="true"
+            android:onClick="@{() -> loginViewModel.onClickForgot()}"
+            android:padding="@dimen/act_medium_margin"
+            android:text="@string/act_login_tv_forgot_password" />
+
+        <Switch
+            android:id="@+id/swTouchIdLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvForgotLogin"
+            android:layout_centerHorizontal="true"
+            android:checked="@{loginViewModel.loginFingerprint}"
+            android:text="@string/act_login_switch_touch_id"
+            android:textColor="@color/colorWhite"
+            android:visibility="@{loginViewModel.showSwitch() ? View.VISIBLE : View.INVISIBLE}" />
+
+        <TextView
+            android:id="@+id/tvRegisterLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/btRegisterLogin"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/act_small_margin"
+            android:text="@string/act_login_tv_biis_account" />
+
+        <Button
+            android:id="@+id/btRegisterLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/act_small_margin"
+            android:background="@drawable/ripple_radius"
+            android:onClick="@{() -> loginViewModel.onClickCreateAccount()}"
+            android:text="@string/act_login_bt_sign_up" />
+
+    </RelativeLayout>
+</layout>

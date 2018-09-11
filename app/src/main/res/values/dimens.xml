@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Margins -->
+    <dimen name="act_horizontal_margin">32dp</dimen>
+    <dimen name="act_vertical_margin">32dp</dimen>
+    <dimen name="act_tiny_margin">4dp</dimen>
+    <dimen name="act_small_margin">8dp</dimen>
+    <dimen name="act_medium_margin">16dp</dimen>
+    <dimen name="act_large_margin">32dp</dimen>
+    <dimen name="act_image_horizontal_size">125dp</dimen>
+
+    <!-- Buttons -->
+    <dimen name="button_radius">50dp</dimen>
+    <dimen name="button_edit_text_margin_end">10dp</dimen>
+    <dimen name="button_edit_text_margin_bottom">35dp</dimen>
+
+    <!-- Fonts -->
+    <dimen name="font_size_tiny_8">8sp</dimen>
+    <dimen name="font_size_small_12">12sp</dimen>
+    <dimen name="font_size_normal_14">14sp</dimen>
+    <dimen name="font_size_medium_16">16sp</dimen>
+    <dimen name="font_size_large_20">20sp</dimen>
+    <dimen name="font_size_extra_large_24">24sp</dimen>
+    <dimen name="font_size_title_36">36sp</dimen>
+    <dimen name="font_line_spacing_8">8sp</dimen>
+
+    <!-- Toolbar -->
+    <dimen name="logo_margin">12dp</dimen>
+
+    <!-- CardView -->
+    <dimen name="card_view_corner_radius">4dp</dimen>
+
+</resources>

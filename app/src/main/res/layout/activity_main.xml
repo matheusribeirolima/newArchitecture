@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="mainViewModel"
+            type="br.com.valecard.test.viewmodel.main.MainViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/flMain"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bnvMain"
+            android:animateLayoutChanges="true" />
+
+        <android.support.design.widget.BottomNavigationView
+            android:id="@+id/bnvMain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorWindowBackground"
+            app:itemIconTint="@color/main_bottom_navigation"
+            app:menu="@menu/main_bottom_navigation"
+            app:onNavigationItemSelected="@{mainViewModel.getBottomListener}"/>
+
+    </RelativeLayout>
+</layout>
