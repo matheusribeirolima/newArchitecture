@@ -16,7 +16,8 @@ import br.com.valecard.test.view.BaseActivity;
 import br.com.valecard.test.view.main.MainActivity;
 import br.com.valecard.test.viewmodel.intro.SplashViewModel;
 
-public class SplashActivity extends BaseActivity<ActivitySplashBinding, SplashViewModel> implements SplashViewModel.SplashListener {
+public class SplashActivity extends BaseActivity<ActivitySplashBinding, SplashViewModel>
+        implements SplashViewModel.SplashListener {
 
     ActivitySplashBinding binding;
     SplashViewModel viewModel;

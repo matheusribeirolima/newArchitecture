@@ -3,12 +3,12 @@ package br.com.valecard.test.model.request;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 
-import com.android.databinding.library.baseAdapters.BR;
 import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.codec.digest.DigestUtils;
 
+import br.com.valecard.test.BR;
 import br.com.valecard.test.helper.MaskHelper;
 
 public class LoginRequest extends BaseObservable {
