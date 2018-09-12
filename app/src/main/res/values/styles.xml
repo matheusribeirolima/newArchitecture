@@ -12,6 +12,13 @@
         <item name="android:windowBackground">@color/colorWindowBackground</item>
     </style>
 
+    <style name="AppTheme.OverlapSystemBar" parent="AppTheme">
+        <item name="android:windowDrawsSystemBarBackgrounds" tools:ignore="NewApi">false</item>
+        <item name="android:statusBarColor" tools:ignore="NewApi">@android:color/transparent</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:fitsSystemWindows">true</item>
+    </style>
+
     <style name="IntroTheme" parent="AppTheme">
         <item name="android:statusBarColor" tools:ignore="NewApi">@android:color/transparent</item>
         <item name="android:fitsSystemWindows">true</item>
