@@ -60,7 +60,9 @@ public abstract class BaseDialog<T extends ViewDataBinding, V extends BaseViewMo
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
         dataBinding = DataBindingUtil.inflate(inflater, getLayoutId(), container, false);
         return dataBinding.getRoot();
     }

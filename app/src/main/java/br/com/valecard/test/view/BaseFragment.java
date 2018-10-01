@@ -2,6 +2,7 @@ package br.com.valecard.test.view;
 
 import android.content.Context;
 import android.databinding.DataBindingUtil;
+import android.databinding.Observable;
 import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
@@ -61,7 +62,9 @@ public abstract class BaseFragment<T extends ViewDataBinding, V extends BaseView
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
         dataBinding = DataBindingUtil.inflate(inflater, getLayoutId(), container, false);
         return dataBinding.getRoot();
     }
@@ -71,6 +74,21 @@ public abstract class BaseFragment<T extends ViewDataBinding, V extends BaseView
         super.onViewCreated(view, savedInstanceState);
         dataBinding.setVariable(getBindingVariable(), viewModel);
         dataBinding.executePendingBindings();
+
+        viewModel.getShowLoading().addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
+            @Override
+            public void onPropertyChanged(Observable sender, int propertyId) {
+                if (viewModel.getShowLoading().get()) {
+                    if (baseActivity != null) {
+                        baseActivity.showLoading();
+                    }
+                } else {
+                    if (baseActivity != null) {
+                        baseActivity.hideLoading();
+                    }
+                }
+            }
+        });
 
         initBinding();
     }

@@ -5,6 +5,8 @@ import android.content.pm.PackageManager;
 import android.databinding.DataBindingUtil;
 import android.databinding.Observable;
 import android.databinding.ViewDataBinding;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
@@ -63,9 +65,9 @@ public abstract class BaseActivity<T extends ViewDataBinding, V extends BaseView
             @Override
             public void onPropertyChanged(Observable sender, int propertyId) {
                 if (viewModel.getShowLoading().get()) {
-                    Toast.makeText(getApplicationContext(), "Show loading", Toast.LENGTH_SHORT).show();
+                    showLoading();
                 } else {
-                    Toast.makeText(getApplicationContext(), "Hide loading", Toast.LENGTH_SHORT).show();
+                    hideLoading();
                 }
             }
         });
@@ -84,18 +86,18 @@ public abstract class BaseActivity<T extends ViewDataBinding, V extends BaseView
     }
 
     public void showLoading() {
-        //progressDialog = CommonUtils.showLoadingDialog(this);
+        LoadingDialog.getInstance().show(getSupportFragmentManager());
     }
 
     public void hideLoading() {
-//        if (progressDialog != null && progressDialog.isShowing()) {
-//            progressDialog.cancel();
-//        }
+        LoadingDialog.getInstance().dismiss();
     }
 
     public boolean isNetworkConnected() {
-        //return NetworkUtils.isNetworkConnected(getApplicationContext());
-        return true;
+        ConnectivityManager connMgr = (ConnectivityManager)
+                getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+        return (networkInfo != null && networkInfo.isConnected());
     }
 
     public void requestPermission(String permission,

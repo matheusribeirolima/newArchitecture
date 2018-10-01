@@ -61,12 +61,16 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
 
     @Override
     public void onClickForgot() {
-        Toast.makeText(getApplicationContext(), "Starts Forgot Activity", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(),
+                "Starts Forgot Activity",
+                Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onClickCreateAccount() {
-        Toast.makeText(getApplicationContext(), "Starts Create Activity", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(),
+                "Starts Create Activity",
+                Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -78,7 +82,9 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
 
     @Override
     public void onStartResetPassActivity() {
-        Toast.makeText(this, "Starts ResetPass Activity", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,
+                "Starts ResetPass Activity",
+                Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -91,6 +97,7 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
     }
 
     private void configureTextForgot() {
-        binding.tvForgotLogin.setPaintFlags(binding.tvForgotLogin.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        binding.tvForgotLogin.setPaintFlags(binding.tvForgotLogin.getPaintFlags() |
+                Paint.UNDERLINE_TEXT_FLAG);
     }
 }
